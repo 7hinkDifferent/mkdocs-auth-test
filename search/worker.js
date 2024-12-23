@@ -103,7 +103,9 @@ function init () {
   console.log('index_path:', index_path);
   fetch(index_path)
   .then((response) => response.json())
-  .then((searchIndex) => console.log("Original search index from worker:", searchIndex))
+  .then((searchIndex) => {
+    console.log("Original search index from worker:", searchIndex)})
+    .finally(() => { console.log('finally')});
   console.log('before send')
   oReq.open("GET", index_path);
   oReq.send();
