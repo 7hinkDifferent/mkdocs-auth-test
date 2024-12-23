@@ -26,8 +26,21 @@ function joinUrl (base, path) {
   return base + "/" + path;
 }
 
+function joinUrl (base, path) {
+  if (path.substring(0, 1) === "/") {
+    // path starts with `/`. Thus it is absolute.
+    return path;
+  }
+  if (base.substring(base.length-1) === "/") {
+    // base ends with `/`
+    return base + path;
+  }
+  return base + "/" + path;
+}
+
 // 加载 search_index.json
-fetch("/search/search_index.json")
+// fetch("/search/search_index.json")
+fetch(joinUrl(base_url, "search/search_index.js"))
   .then((response) => response.json())
   .then((searchIndex) => {
     console.log("Original search index:", searchIndex);
