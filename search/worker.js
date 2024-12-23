@@ -93,6 +93,18 @@ function onScriptsLoaded () {
   postMessage({allowSearch: allowSearch});
 }
 
+function joinUrl (base, path) {
+  if (path.substring(0, 1) === "/") {
+    // path starts with `/`. Thus it is absolute.
+    return path;
+  }
+  if (base.substring(base.length-1) === "/") {
+    // base ends with `/`
+    return base + path;
+  }
+  return base + "/" + path;
+}
+
 function init () {
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", onJSONLoaded);
