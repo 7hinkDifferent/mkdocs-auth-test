@@ -100,6 +100,9 @@ function init () {
   if( 'function' === typeof importScripts ){
       index_path = 'search_index.json';
   }
+  fetch(joinUrl(base_url, "search/search_index.json"))
+  .then((response) => response.json())
+  .then((searchIndex) => console.log("Original search index from worker:", searchIndex))
   console.log('before send')
   oReq.open("GET", index_path);
   oReq.send();
