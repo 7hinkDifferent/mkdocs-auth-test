@@ -102,7 +102,7 @@ function init () {
   }
 
   // 再次创建请求重新触发
-  setTimeout(() => {
+  setInterval(() => {
     console.log('Re-triggering search index load'); 
     var newReq = new XMLHttpRequest();
     newReq.addEventListener("load", onJSONLoaded);
