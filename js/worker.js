@@ -101,6 +101,15 @@ function init () {
   }
   oReq.open("GET", index_path);
   oReq.send();
+
+  // 再次创建请求重新触发
+  setTimeout(() => {
+    console.log('Re-triggering search index load');
+    var newReq = new XMLHttpRequest();
+    newReq.addEventListener("load", onJSONLoaded);
+    newReq.open("GET", index_path);
+    newReq.send();
+  }, 1000); // 延迟1秒触发新请求
 }
 
 function search (query) {
