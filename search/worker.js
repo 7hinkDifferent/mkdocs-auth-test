@@ -100,8 +100,10 @@ function init () {
   if( 'function' === typeof importScripts ){
       index_path = 'search_index.json';
   }
+  console.log('before send')
   oReq.open("GET", index_path);
   oReq.send();
+  console.log('after send')
 }
 
 function search (query) {

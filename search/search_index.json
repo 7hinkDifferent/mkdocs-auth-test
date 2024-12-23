@@ -28,11 +28,6 @@
             "location": "#project-layout",
             "text": "mkdocs.yml # The configuration file. docs/ index.md # The documentation homepage. ... # Other markdown pages, images and other files.",
             "title": "Project layout"
-        },
-        {
-            "location": "#welcome-to-mkdocs",
-            "text": "hello testtesttest",
-            "title": "Dynamic Content Title"
         }
     ]
 }
