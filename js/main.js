@@ -103,6 +103,7 @@ if (!window.Worker) {
   });
 } else {
   // Wrap search in a web worker
+  console.log('Web Worker API supported');
   var searchWorker = new Worker(joinUrl(base_url, "js/worker.js"));
   searchWorker.postMessage({init: true});
   searchWorker.onmessage = onWorkerMessage;
