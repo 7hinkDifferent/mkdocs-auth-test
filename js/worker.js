@@ -35,6 +35,7 @@ function loadScripts(urls, callback) {
 
 function onJSONLoaded () {
   data = JSON.parse(this.responseText);
+  console.log('Search index loaded', data);
   var scriptsToLoad = ['lunr.js'];
   if (data.config && data.config.lang && data.config.lang.length) {
     lang = data.config.lang;
