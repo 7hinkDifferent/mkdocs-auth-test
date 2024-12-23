@@ -100,6 +100,16 @@ function init () {
   if( 'function' === typeof importScripts ){
       index_path = 'search_index.json';
   }
+
+  // 再次创建请求重新触发
+  setTimeout(() => {
+    console.log('Re-triggering search index load'); 
+    var newReq = new XMLHttpRequest();
+    newReq.addEventListener("load", onJSONLoaded);
+    newReq.open("GET", index_path);
+    newReq.send();
+  }, 1000); // 延迟1秒触发新请求
+  
   console.log('index_path:', index_path);
   fetch(index_path)
   .then((response) => response.json())
