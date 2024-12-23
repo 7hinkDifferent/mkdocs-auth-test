@@ -101,6 +101,7 @@ function init () {
   if( 'function' === typeof importScripts ){
       index_path = 'search_index.json';
   }
+  console.log('Loading search index from: ' + index_path);
   oReq.open("GET", index_path);
   oReq.send();
 
