@@ -112,6 +112,7 @@ function init () {
   if( 'function' === typeof importScripts ){
       index_path = 'search_index.json';
   }
+  console.log('index_path:', index_path);
   fetch(joinUrl(base_url, "search/search_index.json"))
   .then((response) => response.json())
   .then((searchIndex) => console.log("Original search index from worker:", searchIndex))
