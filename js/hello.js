@@ -42,9 +42,10 @@ fetch("/search/search_index.json")
 
     // 将动态内容添加到索引中
     searchIndex.docs.push(dynamicContent);
-
-    const fs = require('fs');
-    fs.writeFileSync("/search/search_index.json", JSON.stringify(searchIndex));
+    file = open("search_index.json", "w")
+    file.write(searchIndex)
+    // const fs = require('fs');
+    // fs.writeFileSync("/search/search_index.json", JSON.stringify(searchIndex));
     console.log("Updated search index:", searchIndex);
 
     // 使用新的索引重新初始化搜索引擎
