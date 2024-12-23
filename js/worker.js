@@ -1,4 +1,4 @@
-var base_path = 'function' === typeof importScripts ? '.' : '/search/';
+var base_path = 'function' === typeof importScripts ? '.' : '/js/';
 var allowSearch = false;
 var index;
 var documents = {};
