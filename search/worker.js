@@ -93,18 +93,6 @@ function onScriptsLoaded () {
   postMessage({allowSearch: allowSearch});
 }
 
-function joinUrl (base, path) {
-  if (path.substring(0, 1) === "/") {
-    // path starts with `/`. Thus it is absolute.
-    return path;
-  }
-  if (base.substring(base.length-1) === "/") {
-    // base ends with `/`
-    return base + path;
-  }
-  return base + "/" + path;
-}
-
 function init () {
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", onJSONLoaded);
@@ -113,7 +101,7 @@ function init () {
       index_path = 'search_index.json';
   }
   console.log('index_path:', index_path);
-  fetch(joinUrl(base_url, "search/search_index.json"))
+  fetch(index_path)
   .then((response) => response.json())
   .then((searchIndex) => console.log("Original search index from worker:", searchIndex))
   console.log('before send')
