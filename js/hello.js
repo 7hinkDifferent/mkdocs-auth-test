@@ -28,7 +28,7 @@ function joinUrl (base, path) {
 
 // 加载 search_index.json
 // fetch("/search/search_index.json")
-fetch(joinUrl(base_url, "search/search_index.json"))
+fetch(joinUrl(base_url, "search_index.json"))
   .then((response) => response.json())
   .then((searchIndex) => {
     console.log("Original search index:", searchIndex);
